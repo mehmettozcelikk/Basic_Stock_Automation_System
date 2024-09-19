@@ -1,14 +1,18 @@
+#TR-Gerekli kütüphane ve modüllerin eklenmesi
+#EN-Adding necessary libraries and modules
 import requests
 import re
 import time
 from bs4 import BeautifulSoup
 
-##programın genel hatları bitti. Veri kazımalar yapılacak. ilk önce select1 in verisi kazınacak ->83.videoda 48.dakika da kaldım.
-
+#TR-Programın çalışacağı sınıf
+#EN-The class in which the program will run
 class Stock:
     def __init__(self):
-        self.loop = True
+        self.loop = True 
 
+    #TR- 'menü' fonksiyonundan aldığı geri dönüş değeri ile hangi fonksiyona gidileceğine karar veren fonksiyon
+    #EN- The function that decides which function will work with the return value it receives from the 'menü' function.
     def program(self):
         select = self.menü()
 
@@ -36,7 +40,9 @@ class Stock:
             print("Otomasyondan çıkış yapılıyor...\n")
             time.sleep(2)
             self.quit()
-        
+    
+    #TR- Kullanıcının yapmak istediği işlemi seçmesini sağlayan fonksiyon
+    #EN- Function that allows the user to select the action they want to perform
     def menü(self):
         def selectControl(select):
             if re.search("[^1-6]",select):
@@ -57,8 +63,9 @@ class Stock:
                 break
         return select
 
-
-    def currentPrice(self):#güncel hisse fiyatlar
+    #TR-İş Yatırım sitesinden istenen şirketin güncel hisse senedi fiyatlarını çeken fonksiyon
+    #EN-The function that retrieves the stock prices of the requested company from the İş Yatırım website.
+    def currentPrice(self):#güncel hisse fiyatları
         while True:
             try:
                 company = input("Hisse ismini giriniz:")
@@ -87,6 +94,8 @@ class Stock:
         time.sleep(2)
         self.returnMenü()
 
+    #TR-İş Yatırım web sitesinden talep edilen şirketin şirket künyesinin bilgilerinin çekilmesini sağlayan fonksiyon
+    #EN-The function that retrieves the company information of the requested company from the İş Yatırım website.
     def companyIdentity(self):#şirket künyesi
         while True:
             try:
@@ -112,7 +121,8 @@ class Stock:
         time.sleep(2)
         self.returnMenü()
 
-
+    #TR-İş Yatırım web sitesinden talep edilen şirketin cari değerlerini getiren fonksiyon
+    #EN-A function that brings the current values ​​of the requested company from the İş Yatırım website
     def currentValues(self):#cari değerler
         while True:
             try:
@@ -136,7 +146,8 @@ class Stock:
         time.sleep(2)
         self.returnMenü()
 
-
+    #TR-İş Yatırım web sitesinden talep edilen şirketin getiri bilgilerini getiren fonksiyon
+    #EN-The function that retrieves the returns information of the requested company from the İş Yatırım website.
     def returns(self):#getiriler
         while True:
             try:
@@ -158,7 +169,8 @@ class Stock:
                 break
         time.sleep(2)
         self.returnMenü()
-    
+    #TR-İş Yatırım web sitesinden talep edilen şirketin dahil olduğu endeks oranını getiren fonksiyon.
+    #EN-The function that retrieves the included indices rate of the requested company from the İş Yatırım website.
     def includedIndicesRate(self):#Dahil Olduğu Endekslerdeki Ağırlığı
         while True:
             try:
@@ -184,10 +196,14 @@ class Stock:
         time.sleep(2)
         self.returnMenü()
 
+    #TR-Programı kapatan fonksiyon
+    #EN-Function that closes the program
     def quit(self):
         self.loop = False
         exit()
 
+    #TR-menüye geri dönme fonksiyonu
+    #EN-return to menu function
     def returnMenü(self):
         while True:
             select = input("Ana menüye dönmek için 8'i, çıkış yapmak için 9'u giriniz:")
@@ -207,6 +223,5 @@ class Stock:
                 time.sleep(2)
                 
 system = Stock()
-
 while system.loop:
     system.program()
