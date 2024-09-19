@@ -65,7 +65,7 @@ class Stock:
 
     #TR-İş Yatırım sitesinden istenen şirketin güncel hisse senedi fiyatlarını çeken fonksiyon
     #EN-The function that retrieves the stock prices of the requested company from the İş Yatırım website.
-    def currentPrice(self):#güncel hisse fiyatları
+    def currentPrice(self):
         while True:
             try:
                 company = input("Hisse ismini giriniz:")
@@ -96,7 +96,7 @@ class Stock:
 
     #TR-İş Yatırım web sitesinden talep edilen şirketin şirket künyesinin bilgilerinin çekilmesini sağlayan fonksiyon
     #EN-The function that retrieves the company information of the requested company from the İş Yatırım website.
-    def companyIdentity(self):#şirket künyesi
+    def companyIdentity(self):
         while True:
             try:
                 company = input("Hisse ismini giriniz:")
@@ -122,8 +122,8 @@ class Stock:
         self.returnMenü()
 
     #TR-İş Yatırım web sitesinden talep edilen şirketin cari değerlerini getiren fonksiyon
-    #EN-A function that brings the current values ​​of the requested company from the İş Yatırım website
-    def currentValues(self):#cari değerler
+    #EN-A function that retrieves the current values ​​of the requested company from the İş Yatırım website
+    def currentValues(self):
         while True:
             try:
                 company = input("Hisse ismini giriniz:")
@@ -148,7 +148,7 @@ class Stock:
 
     #TR-İş Yatırım web sitesinden talep edilen şirketin getiri bilgilerini getiren fonksiyon
     #EN-The function that retrieves the returns information of the requested company from the İş Yatırım website.
-    def returns(self):#getiriler
+    def returns(self):
         while True:
             try:
                 company = input("Hisse ismini giriniz:")
@@ -170,8 +170,8 @@ class Stock:
         time.sleep(2)
         self.returnMenü()
     #TR-İş Yatırım web sitesinden talep edilen şirketin dahil olduğu endeks oranını getiren fonksiyon.
-    #EN-The function that retrieves the included indices rate of the requested company from the İş Yatırım website.
-    def includedIndicesRate(self):#Dahil Olduğu Endekslerdeki Ağırlığı
+    #EN-The function that retrieves the rate of included indices for the requested company from the İş Yatırım website.
+    def includedIndicesRate(self):
         while True:
             try:
                 company = input("Hisse ismini giriniz:")
